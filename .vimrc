@@ -68,6 +68,8 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 " vim-python/python-syntax
 let g:python_highlight_all = 1
+let g:python_highlight_space_errors = 0
+
 
 " Nerd commenter
 let g:NERDCreateDefaultMappings = 1   " Create default mappings
