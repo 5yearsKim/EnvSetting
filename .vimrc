@@ -43,9 +43,15 @@ set title
 set showmatch     " display matching brackets
 set mouse=a
 
+"tab=2 when detected html
+autocmd BufRead,BufNewFile *.htm,*.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 
 " key map
 let mapleader=","
+nnoremap <leader>c :call NERDComment(0, "toggle")<CR>
+vnoremap <leader>c :call NERDComment(0, "toggle")<CR>
+
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -72,15 +78,16 @@ let g:python_highlight_space_errors = 0
 
 
 " Nerd commenter
-let g:NERDCreateDefaultMappings = 1   " Create default mappings
+" let g:NERDCreateDefaultMappings = 1   " Create default mappings
 let g:NERDSpaceDelims = 1             " Add spaces after comment delimiters by default
 let g:NERDCompactSexyComs = 1         " Use compact syntax for prettified multi-line comments
 let g:NERDDefaultAlign = 'left'       " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDAltDelims_java = 1          " Set a language to use its alternate delimiters by default
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }   " Add your own custom formats or override the defaults
-let g:NERDCommentEmptyLines = 1       " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDTrimTrailingWhitespace = 1  " Enable trimming of trailing whitespace when uncommenting
 let g:NERDToggleCheckAllLines = 1     " Enable NERDCommenterToggle to check all selected lines is commented or not 
+
+
 
 au BufEnter * set fo-=c fo-=r fo-=o   " stop adding comment when newline
 
